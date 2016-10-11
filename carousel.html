@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<style>
+  .carousel{
+    position: relative;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+  }
+  .carousel__item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100px;
+    float: left;
+    display: block;
+    background: blue;
+    color: #fff;
+  }
+
+</style>
+
+<body>
+  <h1>カルーセル</h1>
+  <p>まずは3つのアイテムを用意して、next,prevボタンをクリックすると該当のdivに移動するようにしたい</p>
+
+  <h2>パーツ</h2>
+  <ul>
+    <li>カルーセル部分：div.carousel>div.carousel__item*3</li>
+    <li>ボタン部分：ul.controller>li.prev+li.next</li>
+  </ul>
+
+  <hr>
+
+  <h2>手順（粒度を細かく）</h2>
+  <ul>
+    <li>.carousel__item を横並べにする</li>
+    <li>div.carousel の横幅を div.carousel__item 3つ分に設定、表示領域は .carousel__item 1つ分にし overflow:hidden; で他の部分は見えなくしておく</li>
+    <li>li.prev を押した時は div.carousel__item の横幅分だけ左に .carousel__item 全てを左に、li.next を押下したら右に移動させる</li>
+  </ul>
+
+  <hr>
+
+  <div class="wrap">
+
+    <div class="carousel">
+      <div class="carousel__item">aaa</div>
+      <div class="carousel__item">bbb</div>
+      <div class="carousel__item">ccc</div>
+    </div>
+
+    <ul class="controller">
+      <li class="prev">prev</li>
+      <li class="next">next</li>
+    </ul>
+
+  <script>
+
+    var carousel = function(){
+      
+    };
+
+  </script>
+
+
+  </div>
+  <!-- /.wrap -->
+
+</body>
+</html>
