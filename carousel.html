@@ -17,7 +17,6 @@
   .carousel__item{
     position: absolute;
     top: 0;
-    left: 0;
     width: 300px;
     height: 100px;
     float: left;
@@ -25,7 +24,18 @@
     background: blue;
     color: #fff;
   }
-
+  .controller li{
+    cursor: pointer;
+  }
+  #carousel--1{
+    left: 0;
+  }
+  #carousel--2{
+    left: 300px;
+  }
+  #carousel--3{
+    left: 600px;
+  }
 </style>
 
 <body>
@@ -52,9 +62,9 @@
   <div class="wrap">
 
     <div class="carousel">
-      <div class="carousel__item">aaa</div>
-      <div class="carousel__item">bbb</div>
-      <div class="carousel__item">ccc</div>
+      <div class="carousel__item" id="carousel--1">aaa</div>
+      <div class="carousel__item" id="carousel--2">bbb</div>
+      <div class="carousel__item" id="carousel--3">ccc</div>
     </div>
 
     <ul class="controller">
@@ -65,7 +75,7 @@
   <script>
 
     var carousel = function(){
-      
+
     };
 
   </script>
