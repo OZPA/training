@@ -10,6 +10,8 @@
 <style>
   .carousel{
     position: relative;
+    display: block;
+    margin: 100px auto;
     width: 300px;
     height: 100px;
     overflow: hidden;
@@ -23,22 +25,36 @@
     display: block;
     background: blue;
     color: #fff;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+  }
+  .carousel__item.moveNext{
+    -webkit-transform: translate(300px,0);
+    -ms-transform: translate(300px,0);
+    transform: translate(300px,0);
+  }
+  .carousel__item.movePrev{
+    -webkit-transform: translate(-300px,0);
+    -ms-transform: translate(-300px,0);
+    transform: translate(-300px,0);
   }
   .controller li{
     cursor: pointer;
   }
-  #carousel--1{
+  #carousel-1{
     left: 0;
   }
-  #carousel--2{
+  #carousel-2{
     left: 300px;
   }
-  #carousel--3{
+  #carousel-3{
     left: 600px;
   }
 </style>
 
 <body>
+  <!--
   <h1>カルーセル</h1>
   <p>まずは3つのアイテムを用意して、next,prevボタンをクリックすると該当のdivに移動するようにしたい</p>
 
@@ -58,24 +74,53 @@
   </ul>
 
   <hr>
-
+ -->
   <div class="wrap">
 
     <div class="carousel">
-      <div class="carousel__item" id="carousel--1">aaa</div>
-      <div class="carousel__item" id="carousel--2">bbb</div>
-      <div class="carousel__item" id="carousel--3">ccc</div>
+      <div class="carousel__item js-carousel" id="carousel-1">aaa</div>
+      <div class="carousel__item js-carousel" id="carousel-2">bbb</div>
+      <div class="carousel__item js-carousel" id="carousel-3">ccc</div>
     </div>
 
     <ul class="controller">
-      <li class="prev">prev</li>
-      <li class="next">next</li>
+      <li class="prev" id="js-prev">prev</li>
+      <li class="next" id="js-next">next</li>
     </ul>
+
+
 
   <script>
 
-    var carousel = function(){
+    var $carouselItem = document.getElementsByClassName('js-carousel');
+    var $prev = document.getElementById('js-prev')
+    var $next = document.getElementById('js-next')
 
+    carousel();
+
+    function carousel(){
+
+      slide();
+
+      function slide(){
+        $next.addEventListener('click', moveNext);
+        $prev.addEventListener('click', movePrev);
+
+        function moveNext(){
+          for(var i = 0; $carouselItem.length > i; i++){
+            $carouselItem[i].classList.add('moveNext');
+            $carouselItem[i].classList.remove('movePrev');
+          };
+        };
+
+        function movePrev(){
+          for(var i = 0; $carouselItem.length > i; i++){
+            $carouselItem[i].classList.add('movePrev');
+            $carouselItem[i].classList.remove('moveNext');
+          };
+        };
+
+      };
     };
 
   </script>
