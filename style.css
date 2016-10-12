@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.carousel{
+  position: relative;
+  display: block;
+  margin: 100px auto;
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+}
+.carousel__item{
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 100px;
+  float: left;
+  display: block;
+  background: blue;
+  color: #fff;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.carousel__item.moveNext{
+  -webkit-transform: translate(300px,0);
+  -ms-transform: translate(300px,0);
+  transform: translate(300px,0);
+}
+.carousel__item.movePrev{
+  -webkit-transform: translate(-300px,0);
+  -ms-transform: translate(-300px,0);
+  transform: translate(-300px,0);
+}
+.controller li{
+  cursor: pointer;
+}
+#carousel-1{
+  left: 0;
+}
+#carousel-2{
+  left: 300px;
+}
+#carousel-3{
+  left: 600px;
+}
