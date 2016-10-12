@@ -1,31 +1,30 @@
+window.onload = function(){
 
-var $carouselItem = document.getElementsByClassName('js-carousel');
-var $prev = document.getElementById('js-prev')
-var $next = document.getElementById('js-next')
+  var $carouselItem = document.getElementsByClassName('js-carousel');
+  var $prev = document.getElementById('js-prev')
+  var $next = document.getElementById('js-next')
 
-carousel();
+  carousel();
 
-function carousel(){
+  function carousel(){
 
-  slide();
+    slide();
 
-  function slide(){
-    $next.addEventListener('click', moveNext);
-    $prev.addEventListener('click', movePrev);
+    function slide(){
+      $next.addEventListener('click', moveNext);
+      $prev.addEventListener('click', movePrev);
 
-    function moveNext(){
-      for(var i = 0; $carouselItem.length > i; i++){
-        $carouselItem[i].classList.add('moveNext');
-        $carouselItem[i].classList.remove('movePrev');
+      function moveNext(){
+console.log('hoge');
       };
-    };
 
-    function movePrev(){
-      for(var i = 0; $carouselItem.length > i; i++){
-        $carouselItem[i].classList.add('movePrev');
-        $carouselItem[i].classList.remove('moveNext');
+      function movePrev(){
+        for(var i = 0; $carouselItem.length > i; i++){
+          $carouselItem[i].classList.add('movePrev');
+          $carouselItem[i].classList.remove('moveNext');
+        };
       };
-    };
 
+    };
   };
 };
