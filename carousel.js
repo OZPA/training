@@ -1,33 +1,36 @@
+var Carousel = {
+
+  $carouselWrap : null,
+  $carouselItem : null,
+  $prev : null,
+  $next : null,
+  carouselWidth : 0,
+  _now : 0,
+
+  init : function(i_item){
+    this.$carouselWrap = document.getElementById('js-carousel');
+    this.$carouselItem = document.getElementsByClassName(i_item);
+    this.$prev = document.getElementById('js-prev');
+    this.$next = document.getElementById('js-next');
+    this.carouselWidth = this.$carouselItem[0].offsetWidth;
+    this._now = 0;
+
+    this.$next.addEventListener('click', this.moveNext.bind(this), false);
+    this.$prev.addEventListener('click', this.movePrev.bind(this), false);
+  },
+
+  moveNext : function (){
+    this._now = this._now - this.carouselWidth;
+    this.$carouselWrap.style.transform = "translateX("+ this._now + "px)";
+  },
+
+  movePrev : function (){
+    this._now = this._now + this.carouselWidth;
+    this.$carouselWrap.style.transform = "translateX("+ this._now +"px)";
+  }
+
+};
+
 window.onload = function(){
-
-  var $carouselItem = document.getElementsByClassName('js-carouselItem');
-  var $prev = document.getElementById('js-prev')
-  var $next = document.getElementById('js-next')
-
-  carousel();
-
-  function carousel(){
-
-    slide();
-
-    function slide(){
-      $next.addEventListener('click', moveNext);
-      $prev.addEventListener('click', movePrev);
-
-      var carouselWidth =  ($carouselItem[0].currentStyle || document.defaultView.getComputedStyle($carouselItem[0], '')).width;
-      console.log(carouselWidth);
-
-      function moveNext(){
-        for(var i = 0; $carouselItem.length > i; i++){
-          $carouselItem[i].style.transform = "translateX("+ carouselWidth +")";
-        };
-      };
-
-      function movePrev(){
-        for(var i = 0; $carouselItem.length > i; i++){
-          $carouselItem[i].style.transform = "translateX(-"+ carouselWidth +")";
-        };
-      };
-    };
-  };
+  Carousel.init('js-carouselItem');
 };
