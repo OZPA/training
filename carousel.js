@@ -15,16 +15,16 @@ window.onload = function(){
       $prev.addEventListener('click', movePrev);
 
       function moveNext(){
-console.log('hoge');
+        for(var i = 0; $carouselItem.length > i; i++){
+          $carouselItem[i].style.transform = "translateX(300px)";
+        };
       };
 
       function movePrev(){
         for(var i = 0; $carouselItem.length > i; i++){
-          $carouselItem[i].classList.add('movePrev');
-          $carouselItem[i].classList.remove('moveNext');
+          $carouselItem[i].style.transform = "translateX(-300px)";
         };
       };
-
     };
   };
 };
