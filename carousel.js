@@ -15,20 +15,19 @@ var Carousel = {
     this.carouselWidth = this.$carouselItem[0].offsetWidth;
     this._now = 0;
 
-    this.$next.addEventListener('click', this.moveNext.bind(this), false);
-    this.$prev.addEventListener('click', this.movePrev.bind(this), false);
+    this.$next.addEventListener('click', this.onClickNext.bind(this), false);
+    this.$prev.addEventListener('click', this.onClickPrev.bind(this), false);
   },
 
-  moveNext : function (){
+  onClickNext : function (){
     this._now = this._now - this.carouselWidth;
     this.$carouselWrap.style.transform = "translateX("+ this._now + "px)";
   },
 
-  movePrev : function (){
+  onClickPrev : function (){
     this._now = this._now + this.carouselWidth;
     this.$carouselWrap.style.transform = "translateX("+ this._now +"px)";
   }
-
 };
 
 window.onload = function(){
