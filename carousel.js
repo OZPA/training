@@ -27,9 +27,18 @@ var Carousel = {
   onClickPrev : function (){
     this._now = this._now + this.carouselWidth;
     this.$carouselWrap.style.transform = "translateX("+ this._now +"px)";
+  },
+
+
+  //----------------------------------------------
+  // timer
+  //----------------------------------------------
+  timer : function(){
+    console.log("hoge");
   }
 };
 
 window.onload = function(){
   Carousel.init('js-carouselItem');
+  Carousel.timer();
 };
