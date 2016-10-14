@@ -4,7 +4,7 @@
   position: relative;
   margin: 100px auto;
   width: 100%;
-  height: 100px;
+  padding-bottom: 50px;
   overflow: hidden;
 }
 .carousel:after{
@@ -13,7 +13,8 @@
   display: block;
 }
 .carousel__wrap{
-  width: 300px;
+  width: 100%;
+  max-width: 960px;
   height: 100px;
   overflow: hidden;
   margin: 0 auto;
@@ -26,7 +27,7 @@
 }
 .carousel__item{
   /*position: absolute;*/
-  width: 300px;
+  width: 960px;
   height: 100px;
   float: left;
   display: block;
@@ -35,8 +36,20 @@
 
 }
 .controller{
+  bottom: calc(50% + 1em);
   clear: both;
 }
 .controller li{
   cursor: pointer;
+  position: absolute;
+  list-style: none;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.controller .next{
+  left: 10%;
+}
+.controller .prev{
+  left: 90%;
 }
