@@ -54,21 +54,21 @@ var Carousel = {
   //----------------------------------------------
   // timer
   // //----------------------------------------------
-  // timer : function(loopTime){
-  //   var loopNext = this.onClickNext.bind(this);
-  //   var counter = 2;
-  //   var carouselLength = this.$carouselItem.length;
-  //
-  //   var autoLoop = function(){
-  //     var count = counter++;
-  //     setTimeout(loopNext, loopTime);
-  //     var timer_id = setTimeout(autoLoop, loopTime);
-  //     if(count == carouselLength){
-  //       clearTimeout(timer_id);
-  //     }
-  //   };
-  //   autoLoop();
-  // },
+  timer : function(loopTime){
+    var loopNext = this.onClickNext.bind(this);
+    var counter = 2;
+    var carouselLength = this.$carouselItem.length;
+
+    var autoLoop = function(){
+      var count = counter++;
+      setTimeout(loopNext, loopTime);
+      var timer_id = setTimeout(autoLoop, loopTime);
+      if(count == carouselLength){
+        clearTimeout(timer_id);
+      }
+    };
+    autoLoop();
+  },
 
   //----------------------------------------------
   // loop
