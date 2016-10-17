@@ -49,7 +49,7 @@ var Carousel = {
     } else {
       this.$carouselWrap.style.transform = "translateX("+ this._now + "px)";
     }
-  }
+  },
 
   //----------------------------------------------
   // timer
@@ -70,31 +70,9 @@ var Carousel = {
     autoLoop();
   },
 
-  //----------------------------------------------
-  // loop
-  //----------------------------------------------
-  // loop : function(){
-  //
-  //   if(this.count == 1){
-  //     this.$prev.addEventListener('click', this.onClickLast);
-  //   }
-  //   function onClickLast (){
-  //     this.$carouselWrap.style.transform = "translateX("+ this.carouselWrapWidth +"px)";
-  //   };
-  //
-  //   if(this.count == this.carouselLength) {
-  //     this.$next.addEventListener('click', this.onClickFirst);
-  //   }
-  //   function onClickFirst (){
-  //     this.$carouselWrap.style.transform = "translateX(0px)";
-  //   };
-  //
-  //
-  // }
-
 };
 
 window.onload = function(){
   Carousel.init('js-carouselItem');
-  // Carousel.timer(2000);
+  Carousel.timer(2000);
 };
