@@ -10,6 +10,7 @@ var Carousel = {
   init : function(i_item){
     this.$carouselWrap = document.getElementById('js-carousel');
     this.$carouselItem = document.getElementsByClassName(i_item);
+    this.carouselLength = this.$carouselItem.length;
     this.$prev = document.getElementById('js-prev');
     this.$next = document.getElementById('js-next');
     this.carouselWidth = this.$carouselItem[0].offsetWidth;
@@ -33,12 +34,18 @@ var Carousel = {
   //----------------------------------------------
   // timer
   //----------------------------------------------
-  timer : function(){
-    console.log("hoge");
+  timer : function(loopTime){
+    var loopNext = this.onClickNext.bind(this);
+    var autoLoop = function(){
+      
+        setTimeout(loopNext, loopTime);
+
+    }
+    autoLoop();
   }
 };
 
 window.onload = function(){
   Carousel.init('js-carouselItem');
-  Carousel.timer();
+  Carousel.timer(2000);
 };
