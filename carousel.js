@@ -36,11 +36,20 @@ var Carousel = {
   //----------------------------------------------
   timer : function(loopTime){
     var loopNext = this.onClickNext.bind(this);
-    var autoLoop = function(){
-      
-        setTimeout(loopNext, loopTime);
+    var counter = 2;
+    var carouselLength = this.$carouselItem.length;
 
-    }
+    var autoLoop = function(){
+      var count = counter++;
+
+console.log(count);
+
+      setTimeout(loopNext, loopTime);
+      var timer_id = setTimeout(autoLoop, loopTime);
+      if(count == carouselLength){
+        clearTimeout(timer_id);
+      }
+    };
     autoLoop();
   }
 };
