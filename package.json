@@ -1,0 +1,22 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "react practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OZPA/training.git"
+  },
+  "author": "kenichi.hasegawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OZPA/training/issues"
+  },
+  "homepage": "https://github.com/OZPA/training#readme",
+  "dependencies": {
+    "react": "^15.3.2"
+  }
+}
