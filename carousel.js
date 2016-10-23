@@ -50,7 +50,6 @@ var Carousel = {
     this._now = this._now - this.$carouselWidth;
     this._count++;
     this.$carousel.style.transform = "translateX(" + this._now + "px)";
-    console.log(this._count);
 
     // 最後のカルーセルまで到達したら最初の状態に戻す
     if(this._count > this.$carouselLength){
@@ -64,8 +63,7 @@ var Carousel = {
     this._now = this._now + this.$carouselWidth;
     this._count--;
     this.$carousel.style.transform = "translateX(" + this._now + "px)";
-console.log(this._count);
-console.log(this._now);
+
     // 最初のカルーセルでクリックしたら一番最後まで移動する
     if(this._count < 1){
       this.$carousel.style.transform = "translateX(-" + this.$carouselEnd + "px)";
