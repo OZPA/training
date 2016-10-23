@@ -28,9 +28,9 @@ var Carousel = {
 
   pager : null,
 
-  init : function (){
+  init : function (i_item){
     this.$carousel = document.getElementById('js-carousel');
-    this.$carouselItem = document.getElementsByClassName('js-carouselItem');
+    this.$carouselItem = document.getElementsByClassName(i_item);
     this.$carouselWidth = this.$carouselItem[0].offsetWidth;
     this.$carouselLength = this.$carouselItem.length;
     this.$carouselFullWidth = this.$carouselWidth * this.$carouselLength;
@@ -63,7 +63,7 @@ var Carousel = {
     this._now = this._now + this.$carouselWidth;
     this._count--;
     this.$carousel.style.transform = "translateX(" + this._now + "px)";
-
+    
     // 最初のカルーセルでクリックしたら一番最後まで移動する
     if(this._count < 1){
       this.$carousel.style.transform = "translateX(-" + this.$carouselEnd + "px)";
@@ -72,11 +72,24 @@ var Carousel = {
     }
   },
 
+  timer : function (loopTime){
+    var loopNext = this.onClickNext.bind(this);
+    var autoLoop = function(){
+      setTimeout(loopNext, loopTime);
+      var timer_id = setTimeout(autoLoop, loopTime);
+      if(this._count > this.$carouselLength){
+        clearTimeout(timer_id);
+      }
+    };
+    autoLoop();
+  },
+
   pager : function (){
 
   }
 }
 window.onload = function(){
-  Carousel.init();
+  Carousel.init("js-carouselItem");
+  Carousel.timer(3000);
 
 };
