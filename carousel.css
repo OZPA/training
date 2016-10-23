@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.carousel{
+  width: 100%;
+  max-width: 960px;
+  display: block;
+  margin: 100px auto;
+  overflow: hidden;
+}
+.carousel__container{
+  width: 9999px;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.carousel__item{
+  width: 960px;
+  height: 300px;
+  float: left;
+  display: block;
+
+  background: #000;
+  color: #fff;
+}
