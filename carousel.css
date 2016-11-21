@@ -6,6 +6,8 @@
   display: block;
   margin: 100px auto;
   overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
 }
 .carousel__container{
   width: 9999px;
@@ -32,4 +34,26 @@
 }
 .controller__prev{
   float: right;
+}
+.pager{
+  position: absolute;
+  left: 50%;
+  float: left;
+  z-index: 100;
+  bottom: 10px;
+}
+.pager__item{
+  position: relative;
+  left: -50%;
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+  margin-right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: gray;
+}
+.pager__item.is-current{
+  background: blue;
 }

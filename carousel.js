@@ -26,7 +26,7 @@ var Carousel = {
   $next : null,
   $prev : null,
 
-  pager : null,
+  $pager : null,
 
   init : function (i_item){
     this.$carousel = document.getElementById('js-carousel');
@@ -35,7 +35,6 @@ var Carousel = {
     this.$carouselLength = this.$carouselItem.length;
     this.$carouselFullWidth = this.$carouselWidth * this.$carouselLength;
     this.$carouselEnd = this.$carouselFullWidth - this.$carouselWidth;
-    console.log(this.$carouselFullWidth);
     this._now = 0;
     this._count = 1;
 
@@ -44,6 +43,7 @@ var Carousel = {
 
     this.$next.addEventListener("click", this.onClickNext.bind(this) , false);
     this.$prev.addEventListener("click", this.onClickPrev.bind(this) , false);
+
   },
 
   onClickNext : function (){
@@ -57,19 +57,23 @@ var Carousel = {
       this._now = 0;
       this._count = 1;
     }
+
+    Carousel.pagerCurrent();
   },
 
   onClickPrev : function (){
     this._now = this._now + this.$carouselWidth;
     this._count--;
     this.$carousel.style.transform = "translateX(" + this._now + "px)";
-    
+
     // 最初のカルーセルでクリックしたら一番最後まで移動する
     if(this._count < 1){
       this.$carousel.style.transform = "translateX(-" + this.$carouselEnd + "px)";
       this._now = - this.$carouselEnd;
       this._count = this.$carouselLength;
     }
+
+    Carousel.pagerCurrent();
   },
 
   timer : function (loopTime){
@@ -85,11 +89,33 @@ var Carousel = {
   },
 
   pager : function (){
+    var pager = document.getElementById('js-pager');
 
+    // pagerアイテムを作成
+    for (var i = 1; i <= this.$carouselLength; i++){
+      var createItems = document.createElement('div');
+      createItems.className = 'pager__item';
+      pager.appendChild(createItems);
+    }
+    for (var j = 0; j <= this.$carouselLength; j++){
+      var pagerItems = document.getElementsByClassName('pager__item')
+      pagerItems[0].className = 'pager__item is-current';
+    }
+  },
+
+  pagerCurrent : function (){
+    for (var i = 0; i < this.$carouselLength; i++){
+      var item = document.getElementsByClassName('pager__item');
+      item[i].className = 'pager__item';
+    }
+    var pager_count = this._count - 1;
+    item[pager_count].className = 'pager__item is-current';
   }
 }
+
 window.onload = function(){
   Carousel.init("js-carouselItem");
   Carousel.timer(3000);
+  Carousel.pager();
 
 };
